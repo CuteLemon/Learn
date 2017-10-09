@@ -23,14 +23,22 @@ def getNews():
 CNN_XPATH = '''//p[@class="zn-body__paragraph"]//text() | //div[@class="zn-body__paragraph"]//text()'''
 TEST_URL = 'http://edition.cnn.com/2017/07/06/us/georgia-stabbings-gwinnett-county/index.html'
 
-def scraperNews(articles):
-	response = requests.get(TEST_URL)
-	tree = html.fromstring(response.content)
-	news = tree.xpath(CNN_XPATH)
-	news = ''.join(news)
-	print news
+def scraperNews(article):
+	url = article['url']
+	try:
+		response = requests.get(url)
+		tree = html.fromstring(response.content)
+		news = tree.xpath(CNN_XPATH)
+		news = ''.join(news)
+		print news
+	except Exception as e:
+		print e
+
 
 if __name__ == '__main__':
 	print 'test begin:...'
-	news_urls = getNews()
-	scraperNews(news_urls)
+	articles = getNews()
+	print '=================='
+	for article in articles:
+		print article['url']
+		scraperNews(article)
