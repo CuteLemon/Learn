@@ -80,3 +80,18 @@ url-api 即带参数，
 使用Python 搭了一个rpc server
 用 jayson 做了一个 client
 单文件测试成功
+
+# 10.31
+前后端分离是怎么个分离法？
+react 和 koa 是怎么运行起来的？
+
+使用 node koa.js 然后后端的服务器就搭好了，前端有什么请求就渲染相应的页面。
+
+使用Bash 做自动化的启动时，先是
+node ./server/koa/04.js
+然后会无法找到 template文件。应该是寻址问题。因为当前文件路径并不是 ./server/koa/
+cd ./server/koa/
+node 04.js 即可
+
+下回任务materialize css 的样式设计。
+滚动刷新的实现。
