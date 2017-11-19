@@ -106,3 +106,24 @@ webpack 是一个模块打包器。简单来说就是各种网站资源编译到
 文件即可。
 
 使用npm install react 而不是直接应用编译后的react
+
+前后端是如何运行的？如何运行一个react 网站？
+
+# 11.17
+
+create-react-app 将 babel,webpack 等都集合在一起了。并且，create-react-app 并没有假定
+后端一定要使用 node.
+
+前后端的运行：
+方案A
+前端占用一个端口，后端占用一个端口。后端其实只负责数据API，前端需要的不同数据通过不同的API接口
+调用接口。koa/express等框架都只负责 API的数据以及路由即可咯。还有一些比如登陆
+信息等数据的传递。
+
+参考资料
+create-react-app with a server
+https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/
+
+# 11.18
+感觉有一段时间没接着做，需要花点时间才能缓存之前的进度。这说明文档设计的不够好。应该做好顶层的设计
+不断的细化。运用结构化得思维去设计整个体系，并记录好文档工作。
